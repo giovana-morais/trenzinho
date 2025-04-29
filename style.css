@@ -1,10 +1,15 @@
 /* referência: https://lenadesign.org/2021/03/08/pure-css-train-animation/ */
-body {
+.main-container {
   background-color: #f0ead2;
   display: flex;
   justify-content:center;
   align-items: center;
   height: 100vh;
+}
+
+.main-title {
+	position: absolute;
+	top: 200px;
 }
 
 .container {
