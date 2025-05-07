@@ -1,11 +1,42 @@
 <!-- referência: https://lenadesign.org/2021/03/08/pure-css-train-animation/ -->
 <!DOCTYPE html>
 <html>
+	<script>
+		var countDownDate = new Date("Jul 11, 2025 21:00:00").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+		// Get today's date and time
+		var now = new Date().getTime();
+
+		// Find the distance between now and the count down date
+		var distance = countDownDate - now;
+
+		// Time calculations for days, hours, minutes and seconds
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		// Display the result in the element with id="demo"
+		document.getElementById("counter").innerHTML = days + "d " + hours + "h "
+		+ minutes + "m " + seconds + "s ";
+
+		// If the count down is finished, write some text
+		if (distance < 0) {
+			clearInterval(x);
+			document.getElementById("counter").innerHTML = "EXPIRED";
+		}
+	}, 1000);
+	</script>
 	<head>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body class="main-container">
-		<h1 class="main-title">Vale 1 viagem de trem</h1>
+		<h1 class="main-title">Uma viagem para Curitiba com um passeio de trem em
+			Morretes incluso!</h1>
+		<h2 class="main-subtitle" id="counter"></h2>
 		<div class="container">
 			<div class="content">
 				<div class="track"></div>
